@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
-import logo from "@/assets/klogo2.jpg.asset.json";
 
 const PHONE = "+254732074700";
 
@@ -20,7 +19,9 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-white border-b-4 border-brand-yellow shadow-sm">
       <div className="mx-auto max-w-7xl px-4 h-16 md:h-20 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logo.url} alt="Kentank" className="h-9 md:h-11 w-auto" />
+          <span className="bg-brand-yellow text-brand-navy font-black px-3 py-1 text-lg md:text-xl tracking-wide">
+            KENTANK
+          </span>
           <span className="hidden sm:block font-display text-lg md:text-xl font-black text-brand-navy tracking-wide leading-none">
             KENYA<br/><span className="text-xs font-bold text-muted-foreground tracking-widest">SUPPLIER</span>
           </span>

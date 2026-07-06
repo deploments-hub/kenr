@@ -6,8 +6,8 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
-import khero from "@/assets/khero.jpg.asset.json";
-import kabout from "@/assets/kabout.jpg.asset.json";
+import heroImage from "@/assets/hero-tank.jpg";
+import tanksRowImage from "@/assets/tanks-row.jpg";
 
 const PHONE = "+254 732 074 700";
 const PHONE_TEL = "+254732074700";
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from KSh 5,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 732 074 700." },
       { property: "og:title", content: "Kentank Water Tanks Kenya | Best Prices" },
       { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 732 074 700 for fast delivery." },
-      { property: "og:image", content: khero.url },
+      { property: "og:image", content: heroImage },
     ],
   }),
   component: Home,
@@ -55,7 +55,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-4 py-14 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <span className="inline-block bg-brand-navy text-brand-yellow text-xs font-black px-3 py-1.5 uppercase tracking-widest">
-            Kentank Supplier · Kenya
+            Kentank Supplier - Kenya
           </span>
           <h1 className="mt-4 font-display text-5xl md:text-7xl font-black uppercase leading-[0.95] text-brand-navy">
             Kentank<br/>Water Tanks<br/><span className="text-brand-navy/70">Best Price in Kenya</span>
@@ -75,7 +75,7 @@ function Hero() {
             </a>
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-            {[["500L–24,000L", "All Sizes"], ["From KSh 5,500", "1000L Tank"], ["Nationwide", "Delivery"]].map(([a, b]) => (
+            {[["500L-24,000L", "All Sizes"], ["From KSh 5,500", "1000L Tank"], ["Nationwide", "Delivery"]].map(([a, b]) => (
               <div key={b} className="border-l-4 border-brand-navy pl-3">
                 <div className="font-black text-lg text-brand-navy">{a}</div>
                 <div className="text-xs uppercase text-brand-navy/70 tracking-wider font-bold">{b}</div>
@@ -84,7 +84,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative">
-          <img src={khero.url} alt="Kentank water tanks range" className="w-full h-72 md:h-[500px] object-contain drop-shadow-2xl" />
+          <img src={heroImage} alt="Kentank water tanks range" className="w-full h-72 md:h-[500px] object-contain drop-shadow-2xl" />
         </div>
       </div>
     </section>
@@ -138,9 +138,9 @@ function WhyBand() {
     ["UV Resistant", "Withstands the harsh Kenyan sun without cracking or fading."],
     ["Food Grade", "Safe inner surface for potable drinking water storage."],
     ["Ribbed Walls", "Extra-strong ribbed design that lasts for years."],
-    ["All Sizes", "500L to 24,000L — one size for every need."],
+    ["All Sizes", "500L to 24,000L - one size for every need."],
     ["Best Prices", "Direct supplier prices with no hidden fees."],
-    ["Fast Delivery", "Countrywide delivery support — Nairobi, Mombasa, Kisumu & more."],
+    ["Fast Delivery", "Countrywide delivery support - Nairobi, Mombasa, Kisumu & more."],
   ];
   return (
     <section className="bg-surface py-16 md:py-24 border-y border-border">
@@ -192,7 +192,7 @@ function AboutStrip() {
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
-        <img src={kabout.url} alt="Kentank tank range" className="w-full h-72 md:h-96 object-contain bg-surface p-6" />
+        <img src={tanksRowImage} alt="Kentank tank range" className="w-full h-72 md:h-96 object-contain bg-surface p-6" />
         <div>
           <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">About Us</div>
           <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Your Trusted Kentank Supplier</h2>
@@ -212,7 +212,7 @@ function Testimonials() {
   const t = [
     { q: "Ordered a 5000L tank on WhatsApp and it was delivered the next day. Great price too.", n: "Peter M.", l: "Nairobi" },
     { q: "Excellent service. The 10,000L tank has been perfect for our farm irrigation.", n: "Grace W.", l: "Nakuru" },
-    { q: "Genuine Kentank quality. I've bought two 3000L tanks for my rentals — no leaks.", n: "James O.", l: "Kisumu" },
+    { q: "Genuine Kentank quality. I've bought two 3000L tanks for my rentals - no leaks.", n: "James O.", l: "Kisumu" },
   ];
   return (
     <section className="bg-surface py-16 md:py-24 border-y border-border">

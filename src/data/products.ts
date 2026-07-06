@@ -1,6 +1,5 @@
-import kproduct from "@/assets/kproduct.jpg.asset.json";
-import kabout from "@/assets/kabout.jpg.asset.json";
-import khero from "@/assets/khero.jpg.asset.json";
+import heroImage from "@/assets/hero-tank.jpg";
+import tanksRowImage from "@/assets/tanks-row.jpg";
 
 export type Product = {
   id: string;
@@ -16,9 +15,8 @@ export type Product = {
 };
 
 const img = (l: number) => {
-  if (l <= 2000) return kproduct.url;
-  if (l <= 8000) return kabout.url;
-  return khero.url;
+  if (l <= 8000) return heroImage;
+  return tanksRowImage;
 };
 
 export const products: Product[] = [
