@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart";
 
 const PHONE = "+254732074700";
+const LOGO_IMAGE = "/klogo2.jpg";
 
 export function Header() {
   const { count } = useCart();
@@ -19,9 +20,7 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-white border-b-4 border-brand-yellow shadow-sm">
       <div className="mx-auto max-w-7xl px-4 h-16 md:h-20 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="bg-brand-yellow text-brand-navy font-black px-3 py-1 text-lg md:text-xl tracking-wide">
-            KENTANK
-          </span>
+          <img src={LOGO_IMAGE} alt="Kentank" className="h-10 md:h-12 w-auto object-contain" />
           <span className="hidden sm:block font-display text-lg md:text-xl font-black text-brand-navy tracking-wide leading-none">
             KENYA<br/><span className="text-xs font-bold text-muted-foreground tracking-widest">SUPPLIER</span>
           </span>

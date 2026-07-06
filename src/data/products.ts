@@ -1,5 +1,4 @@
-import heroImage from "@/assets/hero-tank.jpg";
-import tanksRowImage from "@/assets/tanks-row.jpg";
+const PRODUCT_IMAGE = "/ken-product.png";
 
 export type Product = {
   id: string;
@@ -12,11 +11,6 @@ export type Product = {
   benefits: string[];
   badge?: string;
   image: string;
-};
-
-const img = (l: number) => {
-  if (l <= 8000) return heroImage;
-  return tanksRowImage;
 };
 
 export const products: Product[] = [
@@ -34,7 +28,7 @@ export const products: Product[] = [
   { litres: 16000, price: 69500, use: "Plastic water storage tank for estates, projects, and production sites", category: "Industrial", profile: "High capacity", leadTime: "Scheduled logistics", benefits: ["Large reserve capacity", "Thick ribbed walls", "Suitable for commercial storage planning"] },
   { litres: 20000, price: 98500, use: "Plastic water tank for estates, commercial backup, and high-demand sites", category: "Industrial", profile: "Estate use", leadTime: "Scheduled logistics", benefits: ["Estate-level storage", "Warranty support available", "Suitable for emergency reserve planning"] },
   { litres: 24000, price: 133500, use: "Plastic water storage tank for institutions, public projects, and bulk supply", category: "Industrial", profile: "Bulk capacity", leadTime: "Scheduled logistics", benefits: ["Large infrastructure reserve", "Heavy-duty ribbed walls", "Built for long-term storage projects"] },
-].map((p) => ({ ...p, id: `kt-${p.litres}`, image: img(p.litres) }));
+].map((p) => ({ ...p, id: `kt-${p.litres}`, image: PRODUCT_IMAGE }));
 
 export const formatKES = (n: number) => `KSh ${n.toLocaleString()}`;
 

@@ -6,11 +6,11 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
-import heroImage from "@/assets/hero-tank.jpg";
-import tanksRowImage from "@/assets/tanks-row.jpg";
 
 const PHONE = "+254 732 074 700";
 const PHONE_TEL = "+254732074700";
+const HERO_IMAGE = "/khero.jpg";
+const ABOUT_IMAGE = "/kabout.jpg";
 const WA_MSG = encodeURIComponent("Hi, I am interested in buying a Kentank water tank. Please send me prices and available sizes.");
 const WA = `https://wa.me/254732074700?text=${WA_MSG}`;
 
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from KSh 5,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 732 074 700." },
       { property: "og:title", content: "Kentank Water Tanks Kenya | Best Prices" },
       { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 732 074 700 for fast delivery." },
-      { property: "og:image", content: heroImage },
+      { property: "og:image", content: HERO_IMAGE },
     ],
   }),
   component: Home,
@@ -84,7 +84,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative">
-          <img src={heroImage} alt="Kentank water tanks range" className="w-full h-72 md:h-[500px] object-contain drop-shadow-2xl" />
+          <img src={HERO_IMAGE} alt="Kentank water tanks range" className="w-full h-72 md:h-[500px] object-contain drop-shadow-2xl" />
         </div>
       </div>
     </section>
@@ -192,7 +192,7 @@ function AboutStrip() {
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
-        <img src={tanksRowImage} alt="Kentank tank range" className="w-full h-72 md:h-96 object-contain bg-surface p-6" />
+        <img src={ABOUT_IMAGE} alt="Kentank tank range" className="w-full h-72 md:h-96 object-contain bg-surface p-6" />
         <div>
           <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">About Us</div>
           <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Your Trusted Kentank Supplier</h2>

@@ -3,7 +3,8 @@ import { Check, Truck, ShieldCheck, Droplets, Users } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import tanksRowImage from "@/assets/tanks-row.jpg";
+
+const ABOUT_IMAGE = "/kabout.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,7 +13,7 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Kentanks Kenya is a trusted supplier of Kentank plastic water storage tanks nationwide. Learn about our mission, values and service." },
       { property: "og:title", content: "About Kentanks Kenya" },
       { property: "og:description", content: "Trusted supplier of Kentank plastic water storage tanks in Kenya." },
-      { property: "og:image", content: tanksRowImage },
+      { property: "og:image", content: ABOUT_IMAGE },
     ],
   }),
   component: About,
@@ -38,7 +39,7 @@ function About() {
                 Kentanks Kenya is a dedicated supplier of Kentank plastic water storage tanks. From small homes to large estates and farms, we make it simple to buy the right tank at a fair price.
               </p>
             </div>
-            <img src={tanksRowImage} alt="Kentank water tanks lineup" className="w-full h-72 md:h-96 object-contain" />
+            <img src={ABOUT_IMAGE} alt="Kentank water tanks lineup" className="w-full h-72 md:h-96 object-contain" />
           </div>
         </section>
 
