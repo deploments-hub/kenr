@@ -1,218 +1,162 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import heroTank from "@/assets/hero-tank.jpg";
-import tanksRow from "@/assets/tanks-row.jpg";
-import { QuoteForm } from "@/components/QuoteForm";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Truck, ShieldCheck, Phone, MessageCircle, Star, ArrowRight, Check, Droplets } from "lucide-react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { QuoteForm } from "@/components/QuoteForm";
+import { ProductCard } from "@/components/ProductCard";
+import { products } from "@/data/products";
+import khero from "@/assets/khero.jpg.asset.json";
+import kabout from "@/assets/kabout.jpg.asset.json";
 
-const PHONE = "+254732074700";
+const PHONE = "+254 732 074 700";
 const PHONE_TEL = "+254732074700";
-const WA_MSG = encodeURIComponent(
-  "Hi, I am interested in buying a Kentanks water tank. Please send me prices and available sizes."
-);
+const WA_MSG = encodeURIComponent("Hi, I am interested in buying a Kentank water tank. Please send me prices and available sizes.");
 const WA = `https://wa.me/254732074700?text=${WA_MSG}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kentanks Water Tanks in Kenya | Prices & Delivery" },
-      {
-        name: "description",
-        content:
-          "Buy Kentanks water tanks in Kenya — 500L, 1000L, 3000L, 5000L, 10000L plastic water storage tanks. Call or WhatsApp +254 732 074 700 for today's price and delivery.",
-      },
-      { property: "og:title", content: "Kentanks Water Tanks in Kenya | Prices & Delivery" },
-      {
-        property: "og:description",
-        content:
-          "Durable Kentanks plastic water storage tanks for homes, farms, schools & construction. Best prices in Kenya. WhatsApp +254 732 074 700.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { title: "Kentank Water Tanks Kenya | Best Prices, Nationwide Delivery" },
+      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from KSh 5,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 732 074 700." },
+      { property: "og:title", content: "Kentank Water Tanks Kenya | Best Prices" },
+      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 732 074 700 for fast delivery." },
+      { property: "og:image", content: khero.url },
     ],
   }),
   component: Home,
 });
 
 function Home() {
+  const featured = products.filter((p) => [1000, 2000, 3000, 5000, 10000, 20000].includes(p.litres));
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <Hero />
-      <Categories />
-      <Sizes />
-      <WhyUs />
-      <QuoteBanner />
-      <TanksBand />
-      <FAQ />
-      <Contact />
+      <main className="flex-1">
+        <Hero />
+        <TrustBar />
+        <Featured products={featured} />
+        <WhyBand />
+        <QuoteBanner />
+        <AboutStrip />
+        <Testimonials />
+        <FAQ />
+        <ContactCTA />
+      </main>
       <Footer />
       <WhatsAppFloat />
     </div>
   );
 }
 
-function Header() {
-  return (
-    <header className="sticky top-0 z-40 bg-white border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="bg-brand-blue text-white font-black px-2 py-1 text-lg">KT</span>
-          <span className="font-display text-xl font-bold tracking-wide">KENTANKS KENYA</span>
-        </a>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
-          <a href="#categories" className="hover:text-brand-blue">Tanks</a>
-          <a href="#sizes" className="hover:text-brand-blue">Sizes</a>
-          <a href="#why" className="hover:text-brand-blue">Why Us</a>
-          <a href="#faq" className="hover:text-brand-blue">FAQ</a>
-          <a href="#contact" className="hover:text-brand-blue">Contact</a>
-        </nav>
-        <a
-          href={`tel:${PHONE_TEL}`}
-          className="bg-brand-red text-white px-4 py-2 font-bold text-sm hover:bg-brand-red-dark"
-        >
-          Call {PHONE}
-        </a>
-      </div>
-    </header>
-  );
-}
-
 function Hero() {
   return (
-    <section id="top" className="relative bg-surface border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+    <section className="relative bg-brand-yellow overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 py-14 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
         <div>
-          <span className="inline-block bg-brand-red text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
-            Kentanks Supplier · Kenya-wide delivery
+          <span className="inline-block bg-brand-navy text-brand-yellow text-xs font-black px-3 py-1.5 uppercase tracking-widest">
+            Kentank Supplier · Kenya
           </span>
-          <h1 className="mt-4 text-4xl md:text-6xl font-black uppercase leading-[1.05] text-foreground">
-            Quality <span className="text-brand-blue">Kentanks</span> Water Tanks in Kenya
+          <h1 className="mt-4 font-display text-5xl md:text-7xl font-black uppercase leading-[0.95] text-brand-navy">
+            Kentank<br/>Water Tanks<br/><span className="text-brand-navy/70">Best Price in Kenya</span>
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-            Durable water storage tanks for homes, farms, schools, construction sites, and businesses.
-            UV-resistant, safe, and available in all sizes from 500 litres to 20,000 litres.
+          <p className="mt-6 text-lg text-brand-navy/85 max-w-xl font-medium">
+            Genuine Kentank plastic water storage tanks from 500L to 24,000L. UV-resistant, food-grade, built to last. Nationwide delivery.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href={`tel:${PHONE_TEL}`} className="bg-brand-blue text-white px-6 py-4 font-bold uppercase tracking-wide hover:bg-brand-blue-dark">
-              Call Now
+            <Link to="/products" className="bg-brand-navy text-white px-7 py-4 font-black uppercase tracking-wide hover:bg-brand-navy-dark inline-flex items-center gap-2">
+              Shop Tanks <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="bg-whatsapp text-white px-7 py-4 font-black uppercase tracking-wide hover:brightness-110 inline-flex items-center gap-2">
+              <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="bg-whatsapp text-white px-6 py-4 font-bold uppercase tracking-wide hover:brightness-110">
-              WhatsApp for Price
-            </a>
-            <a href="#quote" className="bg-brand-red text-white px-6 py-4 font-bold uppercase tracking-wide hover:bg-brand-red-dark">
-              Request Quote
+            <a href={`tel:${PHONE_TEL}`} className="bg-white text-brand-navy px-7 py-4 font-black uppercase tracking-wide border-2 border-brand-navy hover:bg-brand-navy hover:text-white inline-flex items-center gap-2">
+              <Phone className="h-4 w-4" /> Call
             </a>
           </div>
-          <div className="mt-8 grid grid-cols-3 gap-4 max-w-md">
-            {[
-              ["500L–20,000L", "Sizes"],
-              ["UV Safe", "Grade"],
-              ["Nationwide", "Delivery"],
-            ].map(([a, b]) => (
-              <div key={b} className="border-l-4 border-brand-blue pl-3">
-                <div className="font-black text-lg">{a}</div>
-                <div className="text-xs uppercase text-muted-foreground tracking-wider">{b}</div>
+          <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
+            {[["500L–24,000L", "All Sizes"], ["From KSh 5,500", "1000L Tank"], ["Nationwide", "Delivery"]].map(([a, b]) => (
+              <div key={b} className="border-l-4 border-brand-navy pl-3">
+                <div className="font-black text-lg text-brand-navy">{a}</div>
+                <div className="text-xs uppercase text-brand-navy/70 tracking-wider font-bold">{b}</div>
               </div>
             ))}
           </div>
         </div>
-        <div id="quote" className="relative">
-          <img
-            src={heroTank}
-            alt="Kentanks water tank installed at a Kenyan home"
-            width={1600}
-            height={1100}
-            className="w-full h-64 md:h-80 object-cover border border-border"
-          />
-          <div className="mt-6">
-            <QuoteForm />
-          </div>
+        <div className="relative">
+          <img src={khero.url} alt="Kentank water tanks range" className="w-full h-72 md:h-[500px] object-contain drop-shadow-2xl" />
         </div>
       </div>
     </section>
   );
 }
 
-function Categories() {
+function TrustBar() {
   const items = [
-    ["Domestic Water Tanks", "Reliable home water storage for daily family use."],
-    ["Farm Water Tanks", "For irrigation, livestock and agricultural water storage."],
-    ["Commercial Water Tanks", "Hotels, offices, apartments and business premises."],
-    ["Construction Water Tanks", "Rugged tanks for building sites and contractors."],
-    ["Overhead Water Tanks", "Elevated tanks for gravity-fed water systems."],
-    ["Large Capacity Water Tanks", "Bulk storage from 10,000L up to 20,000L and more."],
+    { icon: Truck, label: "Nationwide Delivery" },
+    { icon: ShieldCheck, label: "Genuine Kentank" },
+    { icon: Droplets, label: "Food-Grade Plastic" },
+    { icon: Star, label: "Trusted by 1000+ Customers" },
   ];
   return (
-    <section id="categories" className="py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionHead eyebrow="Our Products" title="Water Tanks by Use" />
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {items.map(([t, d]) => (
-            <div key={t} className="group bg-white border border-border p-6 hover:border-brand-blue hover:shadow-md transition">
-              <div className="w-10 h-1 bg-brand-red mb-4 group-hover:w-16 transition-all" />
-              <h3 className="text-xl font-bold">{t}</h3>
-              <p className="mt-2 text-muted-foreground text-sm">{d}</p>
-              <a href={WA} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-brand-blue font-semibold text-sm hover:underline">
-                Get price →
-              </a>
-            </div>
-          ))}
-        </div>
+    <section className="bg-brand-navy text-white py-5">
+      <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {items.map((it) => (
+          <div key={it.label} className="flex items-center gap-3 justify-center md:justify-start">
+            <it.icon className="h-6 w-6 text-brand-yellow shrink-0" />
+            <span className="font-bold text-sm uppercase tracking-wide">{it.label}</span>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-function Sizes() {
-  const sizes = ["500", "1000", "2000", "3000", "4000", "5000", "10000", "20000"];
+function Featured({ products }: { products: typeof import("@/data/products").products }) {
   return (
-    <section id="sizes" className="py-16 md:py-24 bg-surface border-y border-border">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4">
-        <SectionHead eyebrow="Available Sizes" title="Common Kentanks Tank Sizes" />
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {sizes.map((s) => (
-            <a
-              key={s}
-              href={`https://wa.me/254732074700?text=${encodeURIComponent(`Hi, please send me the price for a ${s} litre Kentanks water tank.`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white border border-border p-5 text-center hover:border-brand-blue hover:bg-brand-blue hover:text-white transition group"
-            >
-              <div className="font-black text-3xl">{Number(s).toLocaleString()}</div>
-              <div className="text-xs uppercase tracking-wider mt-1 text-muted-foreground group-hover:text-white/80">Litres</div>
-              <div className="mt-3 text-xs font-semibold uppercase text-brand-red group-hover:text-white">Get price</div>
-            </a>
-          ))}
+        <div className="flex items-end justify-between flex-wrap gap-4">
+          <div>
+            <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">Popular Sizes</div>
+            <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Best-Selling Water Tanks</h2>
+          </div>
+          <Link to="/products" className="text-brand-navy font-black uppercase text-sm hover:underline inline-flex items-center gap-1">
+            View all tanks <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-        <p className="mt-8 text-center text-muted-foreground max-w-2xl mx-auto">
-          Not sure what size you need?{" "}
-          <a href={`tel:${PHONE_TEL}`} className="text-brand-blue font-semibold">Contact us</a>{" "}
-          and we will help you choose the right tank.
-        </p>
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {products.map((p) => <ProductCard key={p.id} product={p} />)}
+        </div>
       </div>
     </section>
   );
 }
 
-function WhyUs() {
+function WhyBand() {
   const points = [
-    "Durable and UV resistant tanks",
-    "Safe for water storage",
-    "Different sizes available",
-    "Fast customer support",
-    "Delivery support available",
-    "Good prices",
+    ["UV Resistant", "Withstands the harsh Kenyan sun without cracking or fading."],
+    ["Food Grade", "Safe inner surface for potable drinking water storage."],
+    ["Ribbed Walls", "Extra-strong ribbed design that lasts for years."],
+    ["All Sizes", "500L to 24,000L — one size for every need."],
+    ["Best Prices", "Direct supplier prices with no hidden fees."],
+    ["Fast Delivery", "Countrywide delivery support — Nairobi, Mombasa, Kisumu & more."],
   ];
   return (
-    <section id="why" className="py-16 md:py-24">
+    <section className="bg-surface py-16 md:py-24 border-y border-border">
       <div className="mx-auto max-w-7xl px-4">
-        <SectionHead eyebrow="Why Choose Us" title="Trusted Kentanks Supplier" />
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {points.map((p) => (
-            <div key={p} className="flex items-start gap-3 bg-white border border-border p-5">
-              <div className="mt-1 h-6 w-6 bg-brand-blue text-white flex items-center justify-center font-bold shrink-0">✓</div>
-              <span className="font-semibold text-lg">{p}</span>
+        <div className="text-center">
+          <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">Why Kentank</div>
+          <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Built for Kenya</h2>
+        </div>
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {points.map(([t, d]) => (
+            <div key={t} className="bg-white p-6 border border-border hover:border-brand-navy transition">
+              <div className="bg-brand-yellow text-brand-navy h-10 w-10 flex items-center justify-center font-black text-lg">
+                <Check className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 font-display text-xl font-black uppercase text-brand-navy">{t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{d}</p>
             </div>
           ))}
         </div>
@@ -223,18 +167,20 @@ function WhyUs() {
 
 function QuoteBanner() {
   return (
-    <section className="bg-brand-blue text-white py-16">
-      <div className="mx-auto max-w-5xl px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-black uppercase">Get Today's Price</h2>
-        <p className="mt-4 text-lg text-white/90 max-w-2xl mx-auto">
-          Send us your location and preferred tank size. We will confirm availability, price, and delivery options.
+    <section className="bg-brand-navy text-white py-16 relative overflow-hidden">
+      <div className="mx-auto max-w-5xl px-4 text-center relative z-10">
+        <h2 className="font-display text-4xl md:text-6xl font-black uppercase">
+          Get Today's <span className="text-brand-yellow">Kentank</span> Price
+        </h2>
+        <p className="mt-4 text-lg text-white/85 max-w-2xl mx-auto">
+          Send us your location and preferred tank size. We confirm availability, price and delivery within minutes.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="bg-whatsapp text-white px-8 py-4 font-bold uppercase hover:brightness-110">
-            WhatsApp {PHONE}
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="bg-whatsapp text-white px-8 py-4 font-black uppercase hover:brightness-110 inline-flex items-center gap-2">
+            <MessageCircle className="h-5 w-5" /> WhatsApp {PHONE}
           </a>
-          <a href={`tel:${PHONE_TEL}`} className="bg-brand-red text-white px-8 py-4 font-bold uppercase hover:bg-brand-red-dark">
-            Call {PHONE}
+          <a href={`tel:${PHONE_TEL}`} className="bg-brand-yellow text-brand-navy px-8 py-4 font-black uppercase hover:bg-brand-yellow-dark inline-flex items-center gap-2">
+            <Phone className="h-5 w-5" /> Call {PHONE}
           </a>
         </div>
       </div>
@@ -242,29 +188,49 @@ function QuoteBanner() {
   );
 }
 
-function TanksBand() {
+function AboutStrip() {
   return (
-    <section className="relative">
-      <img src={tanksRow} alt="Kentanks water tanks available at our yard" width={1400} height={900} loading="lazy" className="w-full h-56 md:h-72 object-cover" />
+    <section className="py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
+        <img src={kabout.url} alt="Kentank tank range" className="w-full h-72 md:h-96 object-contain bg-surface p-6" />
+        <div>
+          <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">About Us</div>
+          <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Your Trusted Kentank Supplier</h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            We supply the full range of Kentank plastic water storage tanks to homes, farms, schools, businesses and construction sites across Kenya. Fair prices, fast delivery and honest advice.
+          </p>
+          <Link to="/about" className="mt-6 inline-flex items-center gap-2 bg-brand-navy text-white px-6 py-3 font-black uppercase hover:bg-brand-navy-dark">
+            Learn more <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }
 
-function FAQ() {
-  const faqs = [
-    ["What tank sizes are available?", "We stock Kentanks water tanks from 500 litres up to 20,000 litres, including popular sizes 1000L, 3000L, 5000L and 10,000L."],
-    ["Do you deliver?", "Yes, we offer delivery support across Kenya. Share your location on WhatsApp and we will confirm the delivery cost."],
-    ["Can I get a price before ordering?", "Absolutely. Call or WhatsApp us on +254 732 074 700 and we will send today's price and availability right away."],
-    ["Are the tanks suitable for drinking water?", "Yes. Kentanks water tanks are made from food-grade, UV-resistant plastic and are safe for domestic drinking water storage."],
-    ["Can you help me choose the right size?", "Yes — tell us how many people or what the tank is for and we will recommend the correct capacity."],
+function Testimonials() {
+  const t = [
+    { q: "Ordered a 5000L tank on WhatsApp and it was delivered the next day. Great price too.", n: "Peter M.", l: "Nairobi" },
+    { q: "Excellent service. The 10,000L tank has been perfect for our farm irrigation.", n: "Grace W.", l: "Nakuru" },
+    { q: "Genuine Kentank quality. I've bought two 3000L tanks for my rentals — no leaks.", n: "James O.", l: "Kisumu" },
   ];
   return (
-    <section id="faq" className="py-16 md:py-24 bg-surface border-y border-border">
-      <div className="mx-auto max-w-4xl px-4">
-        <SectionHead eyebrow="FAQ" title="Frequently Asked Questions" />
-        <div className="mt-10 divide-y divide-border border border-border bg-white">
-          {faqs.map(([q, a], i) => (
-            <FaqItem key={q} q={q} a={a} defaultOpen={i === 0} />
+    <section className="bg-surface py-16 md:py-24 border-y border-border">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="text-center">
+          <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">Reviews</div>
+          <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">What Customers Say</h2>
+        </div>
+        <div className="mt-12 grid md:grid-cols-3 gap-5">
+          {t.map((x) => (
+            <div key={x.n} className="bg-white p-6 border-t-4 border-brand-yellow">
+              <div className="flex gap-0.5 text-brand-yellow-dark">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+              </div>
+              <p className="mt-3 text-foreground/85 italic">"{x.q}"</p>
+              <div className="mt-4 font-black text-brand-navy">{x.n}</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">{x.l}</div>
+            </div>
           ))}
         </div>
       </div>
@@ -272,41 +238,58 @@ function FAQ() {
   );
 }
 
-function FaqItem({ q, a, defaultOpen }: { q: string; a: string; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(!!defaultOpen);
+function FAQ() {
+  const faqs = [
+    ["What Kentank sizes do you have?", "We stock all sizes from 500 litres up to 24,000 litres including popular 1000L, 3000L, 5000L and 10,000L."],
+    ["What is the price of a Kentank water tank?", "Prices start from KSh 5,500 for a 1000L tank. See our Products page for full pricing or WhatsApp us for the latest quote."],
+    ["Do you deliver countrywide?", "Yes, we deliver anywhere in Kenya. Share your location on WhatsApp and we confirm the delivery cost."],
+    ["Are Kentank tanks safe for drinking water?", "Yes. They are made from food-grade UV-resistant plastic and are safe for potable water storage."],
+    ["Can I pay on delivery?", "Payment terms are agreed once we confirm your order. Contact us and we'll walk you through the options."],
+  ];
   return (
-    <div>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between text-left px-5 py-4 hover:bg-surface">
-        <span className="font-bold text-lg">{q}</span>
-        <span className="text-2xl text-brand-blue font-black">{open ? "−" : "+"}</span>
-      </button>
-      {open && <div className="px-5 pb-5 text-muted-foreground">{a}</div>}
-    </div>
+    <section id="faq" className="py-16 md:py-24">
+      <div className="mx-auto max-w-4xl px-4">
+        <div className="text-center">
+          <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">FAQ</div>
+          <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Frequently Asked</h2>
+        </div>
+        <div className="mt-10 border border-border bg-white">
+          {faqs.map(([q, a], i) => (
+            <details key={q} className="border-b border-border last:border-b-0 group" open={i === 0}>
+              <summary className="cursor-pointer flex items-center justify-between px-5 py-4 font-bold text-lg text-brand-navy hover:bg-surface list-none">
+                {q}
+                <span className="text-2xl text-brand-yellow-dark font-black group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <div className="px-5 pb-5 text-muted-foreground">{a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
-function Contact() {
+function ContactCTA() {
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section id="contact" className="py-16 md:py-24 bg-surface border-t border-border">
       <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10">
         <div>
-          <SectionHead eyebrow="Contact" title="Talk to a Kentanks Specialist" />
-          <p className="mt-4 text-muted-foreground text-lg">
-            Ready to buy a water tank in Kenya? Reach out any time — we respond fast on calls and WhatsApp.
-          </p>
+          <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">Contact</div>
+          <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Talk to Us Now</h2>
+          <p className="mt-4 text-muted-foreground text-lg">Ready to buy? We respond fast on calls and WhatsApp.</p>
           <div className="mt-8 space-y-4">
-            <a href={`tel:${PHONE_TEL}`} className="flex items-center gap-4 bg-white border border-border p-5 hover:border-brand-blue">
-              <div className="bg-brand-blue text-white h-12 w-12 flex items-center justify-center font-bold">☎</div>
+            <a href={`tel:${PHONE_TEL}`} className="flex items-center gap-4 bg-white border-l-4 border-brand-navy p-5 hover:shadow-md">
+              <div className="bg-brand-navy text-white h-12 w-12 flex items-center justify-center"><Phone className="h-6 w-6" /></div>
               <div>
-                <div className="text-xs uppercase text-muted-foreground tracking-wider">Phone</div>
-                <div className="font-bold text-xl">{PHONE}</div>
+                <div className="text-xs uppercase text-muted-foreground tracking-wider font-bold">Phone</div>
+                <div className="font-black text-xl text-brand-navy">{PHONE}</div>
               </div>
             </a>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border border-border p-5 hover:border-whatsapp">
-              <div className="bg-whatsapp text-white h-12 w-12 flex items-center justify-center font-bold">W</div>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border-l-4 border-whatsapp p-5 hover:shadow-md">
+              <div className="bg-whatsapp text-white h-12 w-12 flex items-center justify-center"><MessageCircle className="h-6 w-6" /></div>
               <div>
-                <div className="text-xs uppercase text-muted-foreground tracking-wider">WhatsApp</div>
-                <div className="font-bold text-xl">{PHONE}</div>
+                <div className="text-xs uppercase text-muted-foreground tracking-wider font-bold">WhatsApp</div>
+                <div className="font-black text-xl text-brand-navy">{PHONE}</div>
               </div>
             </a>
           </div>
@@ -314,37 +297,5 @@ function Contact() {
         <QuoteForm />
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-foreground text-white/80 py-10">
-      <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="bg-brand-blue text-white font-black px-2 py-1">KT</span>
-            <span className="font-display text-xl font-bold text-white">KENTANKS KENYA</span>
-          </div>
-          <p className="mt-2 text-sm max-w-md">
-            Kentanks water tanks supplier in Kenya. Plastic water storage tanks for homes, farms, schools, and businesses.
-          </p>
-        </div>
-        <div className="text-sm">
-          <div>Call / WhatsApp: <a className="text-white font-semibold" href={`tel:${PHONE_TEL}`}>{PHONE}</a></div>
-          <div className="mt-1">© {new Date().getFullYear()} Kentanks Kenya Supplier. All rights reserved.</div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-function SectionHead({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="text-center">
-      <div className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">{eyebrow}</div>
-      <h2 className="mt-2 text-3xl md:text-5xl font-black uppercase">{title}</h2>
-      <div className="mt-4 h-1 w-16 bg-brand-blue mx-auto" />
-    </div>
   );
 }
