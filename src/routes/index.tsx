@@ -17,10 +17,10 @@ const WA = `https://wa.me/254732074700?text=${WA_MSG}`;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kentank Water Tanks Kenya | Best Prices, Nationwide Delivery" },
-      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from KSh 5,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 732 074 700." },
+      { title: "Kentank Water Tanks Kenya | Best Prices, Free Delivery" },
+      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from Ksh. 6,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 732 074 700." },
       { property: "og:title", content: "Kentank Water Tanks Kenya | Best Prices" },
-      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 732 074 700 for fast delivery." },
+      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 732 074 700 for free countrywide delivery." },
       { property: "og:image", content: HERO_IMAGE },
     ],
   }),
@@ -61,7 +61,7 @@ function Hero() {
             Kentank<br/>Water Tanks<br/><span className="text-brand-navy/70">Best Price in Kenya</span>
           </h1>
           <p className="mt-6 text-lg text-brand-navy/85 max-w-xl font-medium">
-            Genuine Kentank plastic water storage tanks from 500L to 24,000L. UV-resistant, food-grade, built to last. Nationwide delivery.
+            Genuine Kentank plastic water storage tanks from 500L to 24,000L. UV-resistant, food-grade, built to last. Free countrywide delivery.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link to="/products" className="bg-brand-navy text-white px-7 py-4 font-black uppercase tracking-wide hover:bg-brand-navy-dark inline-flex items-center gap-2">
@@ -75,7 +75,7 @@ function Hero() {
             </a>
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-            {[["500L-24,000L", "All Sizes"], ["From KSh 5,500", "1000L Tank"], ["Nationwide", "Delivery"]].map(([a, b]) => (
+            {[["500L-24,000L", "All Sizes"], ["From Ksh. 6,500", "1000L Tank"], ["Free Delivery", "Countrywide"]].map(([a, b]) => (
               <div key={b} className="border-l-4 border-brand-navy pl-3">
                 <div className="font-black text-lg text-brand-navy">{a}</div>
                 <div className="text-xs uppercase text-brand-navy/70 tracking-wider font-bold">{b}</div>
@@ -93,7 +93,7 @@ function Hero() {
 
 function TrustBar() {
   const items = [
-    { icon: Truck, label: "Nationwide Delivery" },
+    { icon: Truck, label: "Free Countrywide Delivery" },
     { icon: ShieldCheck, label: "Genuine Kentank" },
     { icon: Droplets, label: "Food-Grade Plastic" },
     { icon: Star, label: "Trusted by 1000+ Customers" },
@@ -140,7 +140,7 @@ function WhyBand() {
     ["Ribbed Walls", "Extra-strong ribbed design that lasts for years."],
     ["All Sizes", "500L to 24,000L - one size for every need."],
     ["Best Prices", "Direct supplier prices with no hidden fees."],
-    ["Fast Delivery", "Countrywide delivery support - Nairobi, Mombasa, Kisumu & more."],
+    ["Fast Delivery", "Free countrywide delivery - Nairobi, Mombasa, Kisumu & more."],
   ];
   return (
     <section className="bg-surface py-16 md:py-24 border-y border-border">
@@ -173,7 +173,7 @@ function QuoteBanner() {
           Get Today's <span className="text-brand-yellow">Kentank</span> Price
         </h2>
         <p className="mt-4 text-lg text-white/85 max-w-2xl mx-auto">
-          Send us your location and preferred tank size. We confirm availability, price and delivery within minutes.
+          Send us your location and preferred tank size. We confirm availability, price and free delivery within minutes.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href={WA} target="_blank" rel="noopener noreferrer" className="bg-whatsapp text-white px-8 py-4 font-black uppercase hover:brightness-110 inline-flex items-center gap-2">
@@ -197,7 +197,7 @@ function AboutStrip() {
           <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">About Us</div>
           <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Your Trusted Kentank Supplier</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We supply the full range of Kentank plastic water storage tanks to homes, farms, schools, businesses and construction sites across Kenya. Fair prices, fast delivery and honest advice.
+            We supply the full range of Kentank plastic water storage tanks to homes, farms, schools, businesses and construction sites across Kenya. Fair prices, free countrywide delivery and honest advice.
           </p>
           <Link to="/about" className="mt-6 inline-flex items-center gap-2 bg-brand-navy text-white px-6 py-3 font-black uppercase hover:bg-brand-navy-dark">
             Learn more <ArrowRight className="h-4 w-4" />
@@ -241,8 +241,8 @@ function Testimonials() {
 function FAQ() {
   const faqs = [
     ["What Kentank sizes do you have?", "We stock all sizes from 500 litres up to 24,000 litres including popular 1000L, 3000L, 5000L and 10,000L."],
-    ["What is the price of a Kentank water tank?", "Prices start from KSh 5,500 for a 1000L tank. See our Products page for full pricing or WhatsApp us for the latest quote."],
-    ["Do you deliver countrywide?", "Yes, we deliver anywhere in Kenya. Share your location on WhatsApp and we confirm the delivery cost."],
+    ["What is the price of a Kentank water tank?", "Prices start from Ksh. 6,500 for a 1000L tank. See our Products page for full pricing or WhatsApp us for the latest quote."],
+    ["Do you deliver countrywide?", "Yes, free delivery countrywide. Share your location on WhatsApp and we confirm availability and timing."],
     ["Are Kentank tanks safe for drinking water?", "Yes. They are made from food-grade UV-resistant plastic and are safe for potable water storage."],
     ["Can I pay on delivery?", "Payment terms are agreed once we confirm your order. Contact us and we'll walk you through the options."],
   ];

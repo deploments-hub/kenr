@@ -22,7 +22,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   const values = [
     { icon: ShieldCheck, t: "Genuine Products", d: "We only supply authentic Kentank plastic water storage tanks." },
-    { icon: Truck, t: "Nationwide Delivery", d: "We deliver to every county in Kenya with reliable logistics partners." },
+    { icon: Truck, t: "Free Countrywide Delivery", d: "We deliver to every county in Kenya at no extra delivery cost." },
     { icon: Droplets, t: "Water Safety First", d: "Food-grade, UV-resistant tanks safe for drinking water storage." },
     { icon: Users, t: "Customer Care", d: "Honest advice - we help you choose the right size for your needs." },
   ];
@@ -54,7 +54,7 @@ function About() {
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-black uppercase text-brand-navy">Why People Choose Us</h2>
               <ul className="mt-4 space-y-3">
-                {["Full Kentank range - 500L to 24,000L","Best prices with no hidden fees","Nationwide delivery support","Fast WhatsApp response","Honest sizing advice for your needs","Backed by real customer reviews"].map((x) => (
+                {["Full Kentank range - 500L to 24,000L","Best prices with no hidden fees","Free countrywide delivery","Fast WhatsApp response","Honest sizing advice for your needs","Backed by real customer reviews"].map((x) => (
                   <li key={x} className="flex items-start gap-3">
                     <div className="bg-brand-yellow text-brand-navy h-6 w-6 flex items-center justify-center mt-0.5 shrink-0"><Check className="h-4 w-4" /></div>
                     <span className="text-foreground/85">{x}</span>

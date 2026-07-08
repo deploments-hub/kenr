@@ -12,7 +12,7 @@ export function Footer() {
             <span className="bg-brand-yellow text-brand-navy font-black px-3 py-1 text-xl tracking-wider">KENTANK</span>
           </div>
           <p className="mt-4 text-sm max-w-md">
-            Kentanks water tanks supplier in Kenya. Quality plastic water storage tanks for homes, farms, schools, and businesses. Nationwide delivery.
+            Kentanks water tanks supplier in Kenya. Quality plastic water storage tanks for homes, farms, schools, and businesses. Free countrywide delivery.
           </p>
           <div className="mt-4 text-sm">
             <a className="text-brand-yellow font-bold" href={`tel:${PHONE_TEL}`}>{PHONE}</a>

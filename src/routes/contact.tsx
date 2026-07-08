@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Kentanks Kenya | Call or WhatsApp +254 732 074 700" },
-      { name: "description", content: "Contact Kentanks Kenya for water tank prices, orders and delivery. Call or WhatsApp +254 732 074 700. Fast response guaranteed." },
+      { name: "description", content: "Contact Kentanks Kenya for water tank prices, orders and free countrywide delivery. Call or WhatsApp +254 732 074 700. Fast response guaranteed." },
       { property: "og:title", content: "Contact Kentanks Kenya" },
       { property: "og:description", content: "Call or WhatsApp +254 732 074 700 for Kentank water tanks in Kenya." },
     ],
@@ -65,7 +65,7 @@ function Contact() {
                   <div className="bg-brand-yellow text-brand-navy h-14 w-14 flex items-center justify-center"><MapPin className="h-6 w-6" /></div>
                   <div>
                     <div className="text-xs uppercase text-muted-foreground tracking-wider font-bold">Service Area</div>
-                    <div className="font-black text-lg text-brand-navy">Nationwide delivery across Kenya</div>
+                    <div className="font-black text-lg text-brand-navy">Free countrywide delivery across Kenya</div>
                   </div>
                 </div>
               </div>

@@ -23,9 +23,9 @@ function CartPage() {
   const { detailed, total, setQty, remove, clear } = useCart();
 
   const checkoutMsg = () => {
-    const lines = detailed.map((d) => `- ${d.qty} x ${d.product.litres.toLocaleString()}L Kentank${d.subtotal ? ` — ${formatKES(d.subtotal)}` : " — price on request"}`).join("%0A");
+    const lines = detailed.map((d) => `- ${d.qty} x ${d.product.litres.toLocaleString()}L Kentank${d.subtotal ? ` - ${formatKES(d.subtotal)}` : " - price on request"}`).join("%0A");
     const totalLine = total > 0 ? `%0A%0ATotal: ${formatKES(total)}` : "";
-    return `Hi, I would like to order the following Kentank water tanks:%0A%0A${lines}${totalLine}%0A%0APlease confirm price, availability and delivery.`;
+    return `Hi, I would like to order the following Kentank water tanks:%0A%0A${lines}${totalLine}%0A%0APlease confirm price, availability and free countrywide delivery.`;
   };
 
   return (
@@ -106,7 +106,7 @@ function CartPage() {
                     <span className="font-bold uppercase text-sm tracking-wide text-brand-navy">Subtotal</span>
                     <span className="font-display text-3xl font-black text-brand-navy">{formatKES(total)}</span>
                   </div>
-                  <p className="mt-2 text-xs text-muted-foreground">Delivery calculated separately based on location.</p>
+                  <p className="mt-2 text-xs text-muted-foreground">Free delivery countrywide.</p>
 
                   <a href={`https://wa.me/254732074700?text=${checkoutMsg()}`} target="_blank" rel="noopener noreferrer"
                     className="mt-5 flex items-center justify-center gap-2 bg-whatsapp text-white px-5 py-4 font-black uppercase tracking-wide hover:brightness-110">
@@ -116,7 +116,7 @@ function CartPage() {
                     <Phone className="h-5 w-5" /> Call to Order
                   </a>
                   <p className="mt-4 text-xs text-muted-foreground text-center">
-                    We confirm final price, availability and delivery cost before payment.
+                    We confirm final price, availability and free countrywide delivery before payment.
                   </p>
                 </aside>
               </div>

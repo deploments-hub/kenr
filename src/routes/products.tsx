@@ -41,7 +41,7 @@ function ProductsPage() {
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-navy">Shop</div>
             <h1 className="mt-1 font-display text-5xl md:text-6xl font-black uppercase text-brand-navy">All Kentank Water Tanks</h1>
-            <p className="mt-3 text-lg text-brand-navy/80 max-w-2xl">Choose from 500 litres up to 24,000 litres. Add to cart or contact us for delivery.</p>
+            <p className="mt-3 text-lg text-brand-navy/80 max-w-2xl">Choose from 500 litres up to 24,000 litres. Add to cart or contact us for free countrywide delivery.</p>
           </div>
         </section>
 
