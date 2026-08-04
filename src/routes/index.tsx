@@ -7,20 +7,20 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
 
-const PHONE = "+254 732 074 700";
-const PHONE_TEL = "+254732074700";
+const PHONE = "+254 762 572 556";
+const PHONE_TEL = "+254762572556";
 const HERO_IMAGE = "/khero.jpg";
 const ABOUT_IMAGE = "/kabout.jpg";
 const WA_MSG = encodeURIComponent("Hi, I am interested in buying a Kentank water tank. Please send me prices and available sizes.");
-const WA = `https://wa.me/254732074700?text=${WA_MSG}`;
+const WA = `https://wa.me/254762572556?text=${WA_MSG}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Kentank Water Tanks Kenya | Best Prices, Free Delivery" },
-      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from Ksh. 6,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 732 074 700." },
+      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from Ksh. 6,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254 762 572 556." },
       { property: "og:title", content: "Kentank Water Tanks Kenya | Best Prices" },
-      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 732 074 700 for free countrywide delivery." },
+      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254 762 572 556 for free countrywide delivery." },
       { property: "og:image", content: HERO_IMAGE },
     ],
   }),
