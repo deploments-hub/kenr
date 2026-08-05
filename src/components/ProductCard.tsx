@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart";
 import { formatKES, type Product } from "@/data/products";
 
-const PHONE_TEL = "+254762572556";
+const PHONE_TEL = "+254739832978";
 
 export function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
@@ -62,7 +62,7 @@ export function ProductCard({ product }: { product: Product }) {
             </button>
           ) : (
             <a
-              href={`https://wa.me/254762572556?text=${waMsg}`}
+              href={`https://wa.me/254739832978?text=${waMsg}`}
               target="_blank"
               rel="noopener noreferrer"
               className="col-span-2 flex items-center justify-center gap-2 bg-brand-navy text-white px-4 py-3 font-bold uppercase text-sm tracking-wide hover:bg-brand-navy-dark"
@@ -71,7 +71,7 @@ export function ProductCard({ product }: { product: Product }) {
             </a>
           )}
           <a href={`tel:${PHONE_TEL}`} className="text-center bg-white border border-brand-navy text-brand-navy px-3 py-2 font-bold uppercase text-xs hover:bg-brand-navy hover:text-white">Call</a>
-          <a href={`https://wa.me/254762572556?text=${waMsg}`} target="_blank" rel="noopener noreferrer" className="text-center bg-whatsapp text-white px-3 py-2 font-bold uppercase text-xs hover:brightness-110">WhatsApp</a>
+          <a href={`https://wa.me/254739832978?text=${waMsg}`} target="_blank" rel="noopener noreferrer" className="text-center bg-whatsapp text-white px-3 py-2 font-bold uppercase text-xs hover:brightness-110">WhatsApp</a>
         </div>
       </div>
     </div>

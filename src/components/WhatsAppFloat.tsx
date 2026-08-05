@@ -1,7 +1,7 @@
 const MSG = encodeURIComponent(
   "Hi, I am interested in buying a Kentanks water tank. Please send me prices and available sizes."
 );
-const HREF = `https://wa.me/254762572556?text=${MSG}`;
+const HREF = `https://wa.me/254739832978?text=${MSG}`;
 
 export function WhatsAppFloat() {
   return (

@@ -7,7 +7,7 @@ export function QuoteForm() {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const msg = `Hi, I would like a quote for a Kentank water tank.%0A%0AName: ${f.get("name")}%0APhone: ${f.get("phone")}%0ALocation: ${f.get("location")}%0ATank size: ${f.get("size")}%0AMessage: ${f.get("message")}`;
-    window.open(`https://wa.me/254762572556?text=${msg}`, "_blank");
+    window.open(`https://wa.me/254739832978?text=${msg}`, "_blank");
     setSent(true);
   }
 
@@ -32,7 +32,7 @@ export function QuoteForm() {
         {sent ? "Sent — opening WhatsApp" : "Send Quote Request"}
       </button>
       <p className="text-xs text-muted-foreground text-center">
-        Or call: <a href="tel:+254762572556" className="text-brand-navy font-bold">+254 762 572 556</a>
+        Or call: <a href="tel:+254739832978" className="text-brand-navy font-bold">+254739832978</a>
       </p>
     </form>
   );
