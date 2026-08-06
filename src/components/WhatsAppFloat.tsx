@@ -1,12 +1,17 @@
 const MSG = encodeURIComponent(
   "Hi, I am interested in buying a Kentanks water tank. Please send me prices and available sizes."
 );
-const HREF = `https://wa.me/254739832978?text=${MSG}`;
 
-export function WhatsAppFloat() {
+type WhatsAppFloatProps = {
+  phoneTel?: string;
+};
+
+export function WhatsAppFloat({ phoneTel = "+254739832978" }: WhatsAppFloatProps) {
+  const href = `https://wa.me/${phoneTel.replace(/\D/g, "")}?text=${MSG}`;
+
   return (
     <a
-      href={HREF}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

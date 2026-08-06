@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { ProductCard } from "@/components/ProductCard";
 import { products, CATEGORIES } from "@/data/products";
+import { PRODUCT_SECTION_PHONE, PRODUCT_SECTION_PHONE_TEL } from "@/config/contact";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -67,13 +68,20 @@ function ProductsPage() {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-7xl px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {list.map((p) => <ProductCard key={p.id} product={p} />)}
+              {list.map((p) => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  phone={PRODUCT_SECTION_PHONE}
+                  phoneTel={PRODUCT_SECTION_PHONE_TEL}
+                />
+              ))}
             </div>
           </div>
         </section>
       </main>
       <Footer />
-      <WhatsAppFloat />
+      <WhatsAppFloat phoneTel={PRODUCT_SECTION_PHONE_TEL} />
     </div>
   );
 }

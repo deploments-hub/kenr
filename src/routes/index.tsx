@@ -6,9 +6,10 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
+import { SITE_PHONE, SITE_PHONE_TEL } from "@/config/contact";
 
-const PHONE = "+254739832978";
-const PHONE_TEL = "+254739832978";
+const PHONE = SITE_PHONE;
+const PHONE_TEL = SITE_PHONE_TEL;
 const HERO_IMAGE = "/khero.jpg";
 const ABOUT_IMAGE = "/kabout.jpg";
 const WA_MSG = encodeURIComponent("Hi, I am interested in buying a Kentank water tank. Please send me prices and available sizes.");
@@ -28,7 +29,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = products.filter((p) => [1000, 2000, 3000, 5000, 10000, 20000].includes(p.litres));
+  const featured = products.filter((p) => [1000, 2000, 5000, 10000].includes(p.litres));
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -127,6 +128,11 @@ function Featured({ products }: { products: typeof import("@/data/products").pro
         </div>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {products.map((p) => <ProductCard key={p.id} product={p} />)}
+        </div>
+        <div className="mt-10 text-center">
+          <Link to="/products" className="inline-flex items-center gap-2 bg-brand-navy text-white px-8 py-4 font-black uppercase tracking-wide hover:bg-brand-navy-dark">
+            View All Tanks <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -277,7 +283,12 @@ function ContactCTA() {
           <div className="text-xs font-black uppercase tracking-[0.25em] text-brand-yellow-dark">Contact</div>
           <h2 className="mt-1 font-display text-4xl md:text-5xl font-black uppercase text-brand-navy">Talk to Us Now</h2>
           <p className="mt-4 text-muted-foreground text-lg">Ready to buy? We respond fast on calls and WhatsApp.</p>
-          <div className="mt-8 space-y-4">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/products" className="inline-flex items-center gap-2 bg-brand-navy text-white px-7 py-4 font-black uppercase tracking-wide hover:bg-brand-navy-dark">
+              View All Tanks <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="mt-6 space-y-4">
             <a href={`tel:${PHONE_TEL}`} className="flex items-center gap-4 bg-white border-l-4 border-brand-navy p-5 hover:shadow-md">
               <div className="bg-brand-navy text-white h-12 w-12 flex items-center justify-center"><Phone className="h-6 w-6" /></div>
               <div>

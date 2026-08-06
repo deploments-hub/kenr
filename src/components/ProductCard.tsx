@@ -2,12 +2,18 @@ import { ShoppingCart, Check } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
 import { formatKES, type Product } from "@/data/products";
+import { SITE_PHONE_TEL } from "@/config/contact";
 
-const PHONE_TEL = "+254739832978";
+type ProductCardProps = {
+  product: Product;
+  phone?: string;
+  phoneTel?: string;
+};
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product, phoneTel = SITE_PHONE_TEL }: ProductCardProps) {
   const { add } = useCart();
   const [added, setAdded] = useState(false);
+  const waPhone = phoneTel.replace(/\D/g, "");
 
   const onAdd = () => {
     add(product.id, 1);
@@ -62,7 +68,7 @@ export function ProductCard({ product }: { product: Product }) {
             </button>
           ) : (
             <a
-              href={`https://wa.me/254739832978?text=${waMsg}`}
+              href={`https://wa.me/${waPhone}?text=${waMsg}`}
               target="_blank"
               rel="noopener noreferrer"
               className="col-span-2 flex items-center justify-center gap-2 bg-brand-navy text-white px-4 py-3 font-bold uppercase text-sm tracking-wide hover:bg-brand-navy-dark"
@@ -70,8 +76,8 @@ export function ProductCard({ product }: { product: Product }) {
               Get Price
             </a>
           )}
-          <a href={`tel:${PHONE_TEL}`} className="text-center bg-white border border-brand-navy text-brand-navy px-3 py-2 font-bold uppercase text-xs hover:bg-brand-navy hover:text-white">Call</a>
-          <a href={`https://wa.me/254739832978?text=${waMsg}`} target="_blank" rel="noopener noreferrer" className="text-center bg-whatsapp text-white px-3 py-2 font-bold uppercase text-xs hover:brightness-110">WhatsApp</a>
+          <a href={`tel:${phoneTel}`} className="text-center bg-white border border-brand-navy text-brand-navy px-3 py-2 font-bold uppercase text-xs hover:bg-brand-navy hover:text-white">Call</a>
+          <a href={`https://wa.me/${waPhone}?text=${waMsg}`} target="_blank" rel="noopener noreferrer" className="text-center bg-whatsapp text-white px-3 py-2 font-bold uppercase text-xs hover:brightness-110">WhatsApp</a>
         </div>
       </div>
     </div>
