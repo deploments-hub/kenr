@@ -13,15 +13,15 @@ const PHONE_TEL = SITE_PHONE_TEL;
 const HERO_IMAGE = "/khero.jpg";
 const ABOUT_IMAGE = "/kabout.jpg";
 const WA_MSG = encodeURIComponent("Hi, I am interested in buying a Kentank water tank. Please send me prices and available sizes.");
-const WA = `https://wa.me/254739832978?text=${WA_MSG}`;
+const WA = `https://wa.me/254733618385?text=${WA_MSG}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Kentank Water Tanks Kenya | Best Prices, Free Delivery" },
-      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from Ksh. 6,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254739832978." },
+      { name: "description", content: "Buy Kentank water tanks in Kenya. 1000L from Ksh. 6,500. 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254733618385." },
       { property: "og:title", content: "Kentank Water Tanks Kenya | Best Prices" },
-      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254739832978 for free countrywide delivery." },
+      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Add to cart or WhatsApp +254733618385 for free countrywide delivery." },
       { property: "og:image", content: HERO_IMAGE },
     ],
   }),

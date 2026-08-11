@@ -6,7 +6,7 @@ type WhatsAppFloatProps = {
   phoneTel?: string;
 };
 
-export function WhatsAppFloat({ phoneTel = "+254739832978" }: WhatsAppFloatProps) {
+export function WhatsAppFloat({ phoneTel = "+254733618385" }: WhatsAppFloatProps) {
   const href = `https://wa.me/${phoneTel.replace(/\D/g, "")}?text=${MSG}`;
 
   return (

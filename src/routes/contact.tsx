@@ -5,18 +5,18 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { QuoteForm } from "@/components/QuoteForm";
 
-const PHONE = "+254739832978";
-const PHONE_TEL = "+254739832978";
+const PHONE = "+254733618385";
+const PHONE_TEL = "+254733618385";
 const WA_MSG = encodeURIComponent("Hi, I am interested in buying a Kentank water tank. Please send me prices and available sizes.");
-const WA = `https://wa.me/254739832978?text=${WA_MSG}`;
+const WA = `https://wa.me/254733618385?text=${WA_MSG}`;
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Kentanks Kenya | Call or WhatsApp +254739832978" },
-      { name: "description", content: "Contact Kentanks Kenya for water tank prices, orders and free countrywide delivery. Call or WhatsApp +254739832978. Fast response guaranteed." },
+      { title: "Contact Kentanks Kenya | Call or WhatsApp +254733618385" },
+      { name: "description", content: "Contact Kentanks Kenya for water tank prices, orders and free countrywide delivery. Call or WhatsApp +254733618385. Fast response guaranteed." },
       { property: "og:title", content: "Contact Kentanks Kenya" },
-      { property: "og:description", content: "Call or WhatsApp +254739832978 for Kentank water tanks in Kenya." },
+      { property: "og:description", content: "Call or WhatsApp +254733618385 for Kentank water tanks in Kenya." },
     ],
   }),
   component: Contact,

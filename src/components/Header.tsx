@@ -3,7 +3,7 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
 
-const PHONE = "+254739832978";
+const PHONE = "+254733618385";
 const LOGO_IMAGE = "/klogo2.jpg";
 
 export function Header() {
