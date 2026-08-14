@@ -6,7 +6,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { useCart } from "@/lib/cart";
 import { formatKES } from "@/data/products";
 
-const PHONE_TEL = "+254733618385";
+const PHONE_TEL = "+254735269879";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
@@ -108,7 +108,7 @@ function CartPage() {
                   </div>
                   <p className="mt-2 text-xs text-muted-foreground">Free delivery countrywide.</p>
 
-                  <a href={`https://wa.me/254733618385?text=${checkoutMsg()}`} target="_blank" rel="noopener noreferrer"
+                  <a href={`https://wa.me/254735269879?text=${checkoutMsg()}`} target="_blank" rel="noopener noreferrer"
                     className="mt-5 flex items-center justify-center gap-2 bg-whatsapp text-white px-5 py-4 font-black uppercase tracking-wide hover:brightness-110">
                     <MessageCircle className="h-5 w-5" /> Checkout on WhatsApp
                   </a>

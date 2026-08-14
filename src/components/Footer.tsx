@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
-const PHONE = "+254733618385";
-const PHONE_TEL = "+254733618385";
+const PHONE = "+254735269879";
+const PHONE_TEL = "+254735269879";
 
 export function Footer() {
   return (

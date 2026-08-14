@@ -62,11 +62,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Kentank Water Tanks Kenya | Buy 1000L–24000L Tanks Online" },
-      { name: "description", content: "Buy Kentank water tanks in Kenya at best prices. 1000L, 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254733618385 for free countrywide delivery." },
+      { name: "description", content: "Buy Kentank water tanks in Kenya at best prices. 1000L, 3000L, 5000L, 10000L plastic water storage tanks. Add to cart or WhatsApp +254735269879 for free countrywide delivery." },
       { name: "author", content: "Kentanks Kenya Supplier" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Kentank Water Tanks Kenya | Buy Online" },
-      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Best prices, free countrywide delivery. Call or WhatsApp +254733618385." },
+      { property: "og:description", content: "Kentank plastic water tanks 1000L to 24000L. Best prices, free countrywide delivery. Call or WhatsApp +254735269879." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
